@@ -1,6 +1,7 @@
 import requests
 import logging as log
 import time
+import sys
 
 from tla_ingest import populate_from_dir
 
@@ -33,6 +34,12 @@ def wait_for_connection(url: str):
 
 
 def main():
+    global BACKEND_URL
+    args = sys.argv[1:]
+    try:
+        BACKEND_URL = args[0]
+    except:
+        log.warning(f'no backend url specified! Falling back to {BACKEND_URL}')
     if wait_for_connection(BACKEND_URL):
         for src_dir, url_path in TYPE_MAPPINGS.items():
             log.info(f'ingest {src_dir} documents')
