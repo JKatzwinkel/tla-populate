@@ -1,0 +1,11 @@
+---
+version: '3.7'
+
+services:
+    tla-ingest:
+        build:
+            context: .
+            args:
+                - SAMPLE_URL=${SAMPLE_URL}
+        tty:
+            true
