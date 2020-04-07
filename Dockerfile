@@ -7,6 +7,10 @@ COPY . /app
 
 WORKDIR /app
 
+ENV BACKEND_URL ${BACKEND_URL}
+
+ENTRYPOINT ["tla-populate-backend", "${BACKEND_URL}"]
+
 RUN apk upgrade --no-cache \
     && apk add tar wget \
     && echo "download corpus data from ${SAMPLE_URL}..." \
@@ -15,4 +19,3 @@ RUN apk upgrade --no-cache \
     && rm sample.tar.gz \
     && pip install --no-use-pep517 .
 
-ENTRYPOINT ["tla-populate-backend", "${BACKEND_URL}"]
