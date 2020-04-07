@@ -11,6 +11,5 @@ RUN apk upgrade --no-cache \
     && wget -q "${SAMPLE_URL}" -O sample.tar.gz \
     && tar -xzf sample.tar.gz \
     && rm sample.tar.gz \
-    && ls -lh \
-    && pip install . \
+    && pip install --no-use-pep517 . \
     && tla-populate-backend
