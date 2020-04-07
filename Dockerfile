@@ -12,4 +12,5 @@ RUN apk upgrade --no-cache \
     && tar -xzf sample.tar.gz \
     && rm sample.tar.gz \
     && pip install --no-use-pep517 . \
+    && echo "start ingestion script" \
     && tla-populate-backend
