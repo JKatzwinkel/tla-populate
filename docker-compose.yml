@@ -7,5 +7,6 @@ services:
             context: .
             args:
                 - SAMPLE_URL=${SAMPLE_URL}
-        tty:
-            true
+        tty: true
+        network_mode: host
+
