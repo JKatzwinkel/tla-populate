@@ -7,6 +7,7 @@ services:
             context: .
             args:
                 - SAMPLE_URL=${SAMPLE_URL}
+        command: ${BACKEND_URL}
         tty: true
         network_mode: host
 

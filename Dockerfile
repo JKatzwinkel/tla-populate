@@ -1,13 +1,10 @@
 FROM python:alpine
 
 ARG SAMPLE_URL
-ARG BACKEND_URL
 
 COPY . /app
 
 WORKDIR /app
-
-ENV BACKEND_URL ${BACKEND_URL}
 
 RUN apk upgrade --no-cache \
     && apk add tar wget \
@@ -18,4 +15,3 @@ RUN apk upgrade --no-cache \
     && pip install --no-use-pep517 .
 
 ENTRYPOINT ["tla-populate-backend"]
-CMD ["${BACKEND_URL}"]
