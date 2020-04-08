@@ -14,7 +14,7 @@ TYPE_MAPPINGS = {
     'ths': 'ths',
 }
 
-log.basicConfig(level=log.DEBUG)
+log.basicConfig(level=log.INFO)
 
 
 def wait_for_connection(url: str):
